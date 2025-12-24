@@ -84,8 +84,6 @@ def generate_answer(context_docs, query, use_cache=True):
         # Clean up response
         if not response or len(response) < 10:
             response = "I cannot find the answer to that question in the provided document."
-        elif any(phrase in response.lower() for phrase in ["i cannot find", "not in the document", "not found", "i don't know"]):
-            response = "I cannot find the answer to that question in the provided document."
         
         # Post-process to improve structure
         response = _improve_answer_structure(response)
